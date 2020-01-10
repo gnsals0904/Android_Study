@@ -20,7 +20,14 @@ public class javaLayoutActivity extends AppCompatActivity {
         RelativeLayout myLayout = new RelativeLayout(this);
         myLayout.setBackgroundColor(Color.BLUE);
 
-        myLayout.addView(myButton);
+        RelativeLayout.LayoutParams buttonParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+        buttonParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        buttonParams.addRule(RelativeLayout.CENTER_VERTICAL);
+
+        myLayout.addView(myButton,buttonParams);
+        // or use this code myButton.setLayoutParams(buttonParams);
+
         setContentView(myLayout);
 
     }
