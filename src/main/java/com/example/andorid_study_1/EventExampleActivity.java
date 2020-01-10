@@ -25,5 +25,14 @@ public class EventExampleActivity extends AppCompatActivity {
                 }
         );
 
+        button.setOnLongClickListener(
+                new Button.OnLongClickListener() {
+                    public boolean onLongClick(View v) {
+                        TextView myTextView = (TextView)findViewById(R.id.textView2);
+                        myTextView.setText("Long button click");
+                        return false; //if true, no touch text not change but if false, no touch text change
+                    }
+                }
+        );
     }
 }
