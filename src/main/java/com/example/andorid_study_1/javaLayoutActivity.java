@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.EditText;
-
+import android.content.res.Resources;
+import android.util.TypedValue;
 
 
 public class javaLayoutActivity extends AppCompatActivity {
@@ -41,6 +42,10 @@ public class javaLayoutActivity extends AppCompatActivity {
         textParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
         textParams.setMargins(0,0,0,80);
 
+        //below code change dp value to px value
+        Resources r = getResources();
+        int px = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
+        myEditText.setWidth(px);
 
         myLayout.addView(myButton,buttonParams);
         // or use this code myButton.setLayoutParams(buttonParams);
