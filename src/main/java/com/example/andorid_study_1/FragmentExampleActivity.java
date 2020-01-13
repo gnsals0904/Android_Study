@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 public class FragmentExampleActivity extends FragmentActivity implements ToolbarFragment.ToolBarListener{
 
-    
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -15,9 +15,10 @@ public class FragmentExampleActivity extends FragmentActivity implements Toolbar
         }
 
         public void onButtonClick(int fontsize, String text){
-
+            TextFragment textFragment = (TextFragment)getSupportFragmentManager().findFragmentById(R.id.text_fragment);
+            textFragment.changeTextProperties(fontsize,text);
         }
-    }
+
 
 
 }
