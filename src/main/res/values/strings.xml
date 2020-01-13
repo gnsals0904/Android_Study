@@ -4,4 +4,6 @@
     <string name="welcomestring">Welcome to Android Studio!!</string>
     <string name="status_string">Status</string>
     <string name="button_string">Press me</string>
+    <string name="touch_two_status">touch two status</string>
+    <string name="touch_one_status">touch one status</string>
 </resources>
