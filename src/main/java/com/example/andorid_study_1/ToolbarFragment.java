@@ -1,5 +1,6 @@
 package com.example.andorid_study_1;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,24 @@ public class ToolbarFragment extends Fragment implements SeekBar.OnSeekBarChange
 
     private static int seekvalue = 10;
     private static EditText edittext;
+
+    ToolBarListener activityCallback;
+
+    public interface ToolBarListener {
+        public void onButtonClick(int position, String text);
+    }
+
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        try {
+            activityCallback = (ToolBarListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+            + " must implement ToolbarListener");
+        }
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +58,8 @@ public class ToolbarFragment extends Fragment implements SeekBar.OnSeekBarChange
     }
 
     private void buttonClicked(View v) {
+        activityCallback.onButtonClick(seekvalue,
+                edittext.getText().toString());
     }
 
     @Override
